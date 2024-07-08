@@ -1,0 +1,13 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the word:");
+        String word = scanner.nextLine();
+        char[] chars = word.toUpperCase().toCharArray();
+        Arrays.sort(chars);
+        String reverseOrder = new StringBuilder(new String(chars)).reverse().toString();
+        System.out.println("Alphabetical Order: " + reverseOrder);
+    }
+}
