@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+        System.out.println("Enter names (enter 'stop' to finish):");
+        while (true) {
+            String name = scanner.nextLine();
+            if (name.equalsIgnoreCase("stop")) {
+                break;
+            }
+            names.add(name);
+        }
+        System.out.println("Enter order (A for ascending, D for descending):");
+        char order = scanner.next().charAt(0);
+        if (order == 'A' || order == 'a') {
+            Collections.sort(names);
+            System.out.println("Names in ascending order:");
+        } else if (order == 'D' || order == 'd') {
+            Collections.sort(names);
+            Collections.reverse(names);
+            System.out.println("Names in descending order:");
+        } else {
+            System.out.println("Invalid order. Please enter A or D.");
+            return;
+        }
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
