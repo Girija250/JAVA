@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a line of text:");
+        String line = scanner.nextLine();
+        int specialCharCount = 0;
+        System.out.println("Special characters are:");
+        for (char c : line.toCharArray()) {
+            if (!Character.isLetterOrDigit(c) && !Character.isWhitespace(c)) {
+                System.out.print(c + " ");
+                specialCharCount++;
+            }
+        }
+        System.out.println("\nNumber of special characters: " + specialCharCount);
+    }
+}
