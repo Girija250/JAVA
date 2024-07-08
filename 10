@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String userInput = scanner.nextLine();
+        String vowels = "aeiouAEIOU";
+        String result = "";
+        for (char c : userInput.toCharArray()) {
+            if (vowels.indexOf(c) == -1) {
+                result += c;
+            }
+        }
+        System.out.println("The string without vowels is: " + result);
+    }
+}
