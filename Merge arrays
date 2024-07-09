@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.Collections;
+public class MergeSortedArrays {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 3, 4, 5};
+        int[] arr2 = {2, 4, 6, 8};
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i : arr1) {
+            list.add(i);
+        }
+        for (int i : arr2) {
+            list.add(i);
+        }
+        Collections.sort(list);
+        int[] arr3 = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            arr3[i] = list.get(i);
+        }
+        System.out.println("Merged array: ");
+        for (int i : arr3) {
+            System.out.print(i + " ");
+        }
+    }
+}
