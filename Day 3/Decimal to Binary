@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class DecimalToBinaryReverse {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        String input = scanner.next();
+        if (isInteger(input)) {
+            int decimal = Integer.parseInt(input);
+            String binary = decimalToBinary(decimal);
+            String reversedBinary = reverseBinary(binary);
+            int reversedDecimal = binaryToDecimal(reversedBinary);
+            System.out.println("Reversed Binary Decimal: " + reversedDecimal);
+        } else {
+            System.out.println("Invalid input. Please enter a valid integer.");
+        }
+    }
+    public static boolean isInteger(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    public static String decimalToBinary(int decimal) {
+        return Integer.toBinaryString(decimal);
+    }
+    public static String reverseBinary(String binary) {
+        StringBuilder reversedBinary = new StringBuilder();
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            reversedBinary.append(binary.charAt(i));
+        }
+        return reversedBinary.toString();
+    }
+    public static int binaryToDecimal(String binary) {
+        return Integer.parseInt(binary, 2);
+    }
+}
