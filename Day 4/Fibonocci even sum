@@ -1,0 +1,20 @@
+public class FibonacciEvenSum {
+    public static void main(String[] args) {
+        int n = 4;
+        System.out.println("Sum of numbers at even indexes: " + getEvenIndexSum(n));
+    }
+    public static int getEvenIndexSum(int n) {
+        int length = 2 * n + 1;
+        int[] fibonacci = new int[length];
+        fibonacci[0] = 0;
+        fibonacci[1] = 1;
+        for (int i = 2; i < length; i++) {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+        int sum = 0;
+        for (int i = 0; i < length; i += 2) {
+            sum += fibonacci[i];
+        }
+        return sum;
+    }
+}
