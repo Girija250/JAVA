@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class PrintCompositeNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of A: ");
+        int a = scanner.nextInt();
+        System.out.print("Enter the value of B: ");
+        int b = scanner.nextInt();
+        System.out.print("Composite numbers between " + a + " and " + b + " are: ");
+        for (int i = a + 1; i < b; i++) {
+            if (!isPrime(i)) {
+                System.out.print(i + ", ");
+            }
+        }
+    }
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
