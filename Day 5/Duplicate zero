@@ -1,0 +1,33 @@
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 2, 3, 0, 4, 5, 0};
+        duplicateZeros(arr);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+    public static void duplicateZeros(int[] arr) {
+        int possibleDups = 0;
+        int length_ = arr.length - 1;
+        for (int i = 0; i < length_; i++) {
+            if (arr[i] == 0) {
+                if (i == length_ - possibleDups) {
+                    arr[length_] = 0;
+                    length_ -= 1;
+                    break;
+                }
+                possibleDups++;
+            }
+        }
+        int lastNonZeroFoundAt = length_ - possibleDups;
+        for (int i = lastNonZeroFoundAt; i >= 0; i--) {
+            if (arr[i] != 0) {
+                arr[i + possibleDups] = arr[i];
+            } else {
+                arr[i + possibleDups] = 0;
+                possibleDups--;
+                arr[i + possibleDups] = 0;
+            }
+        }
+    }
+}
