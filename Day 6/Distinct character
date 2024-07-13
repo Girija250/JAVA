@@ -1,0 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+public class CharacterCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        Map<Character, Integer> characterCountMap = getCharacterCount(input);
+        System.out.println("Character counts:");
+        for (Map.Entry<Character, Integer> entry : characterCountMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        scanner.close();
+    }
+    public static Map<Character, Integer> getCharacterCount(String input) {
+        Map<Character, Integer> characterCountMap = new HashMap<>();
+        for (char ch : input.toCharArray()) {
+            if (characterCountMap.containsKey(ch)) {
+                characterCountMap.put(ch, characterCountMap.get(ch) + 1);
+            } else {
+                characterCountMap.put(ch, 1);
+            }
+        }  
+        return characterCountMap;
+    }
+}
