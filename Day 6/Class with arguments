@@ -1,0 +1,32 @@
+public class Overload {
+    private int value1;
+    private int value2;
+    public void assignValues(int val) {
+        this.value1 = val;
+        this.value2 = val;
+    }
+    public void assignValues(int val1, int val2) {
+        this.value1 = val1;
+        this.value2 = val2;
+    }
+    public void assignValues(int val1, String val2) {
+        this.value1 = val1;
+        this.value2 = Integer.parseInt(val2);
+    }
+    public void displayValues() {
+        System.out.println("Value1: " + value1);
+        System.out.println("Value2: " + value2);
+    }
+    public static void main(String[] args) {
+        Overload overload = new Overload();
+        overload.assignValues(5);
+        System.out.println("After assigning one value:");
+        overload.displayValues();
+        overload.assignValues(10, 20);
+        System.out.println("After assigning two values:");
+        overload.displayValues();
+        overload.assignValues(30, "40");
+        System.out.println("After assigning two values with different types:");
+        overload.displayValues();
+    }
+}
