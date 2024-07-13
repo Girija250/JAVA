@@ -1,0 +1,41 @@
+class CustomThread extends Thread {
+    private String threadName;
+    CustomThread(String name) {
+        threadName = name;
+    }
+    public void run() {
+        try {
+            System.out.println(threadName + " is starting...");
+            Thread.sleep(500); // Sleep for 500 milliseconds
+            System.out.println(threadName + " has finished execution.");
+        } catch (InterruptedException e) {
+            System.out.println(threadName + " was interrupted.");
+        }
+    }
+}
+public class MultipleThreads {
+    public static void main(String[] args) {
+        CustomThread thread1 = new CustomThread("Thread 1");
+        CustomThread thread2 = new CustomThread("Thread 2");
+        CustomThread thread3 = new CustomThread("Thread 3");
+        thread1.start();
+        try {
+            thread1.join(); // Wait for thread1 to finish
+        } catch (InterruptedException e) {
+            System.out.println("Thread 1 interrupted while waiting.");
+        }
+        thread2.start();
+        try {
+            thread2.join(); // Wait for thread2 to finish
+        } catch (InterruptedException e) {
+            System.out.println("Thread 2 interrupted while waiting.");
+        }
+        thread3.start();
+        try {
+            thread3.join(); // Wait for thread3 to finish
+        } catch (InterruptedException e) {
+            System.out.println("Thread 3 interrupted while waiting.");
+        }
+        System.out.println("All threads have finished execution.");
+    }
+}
