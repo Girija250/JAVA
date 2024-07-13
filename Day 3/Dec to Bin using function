@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class DecimalToBinary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        int decimal = scanner.nextInt();
+        String binary = Integer.toBinaryString(decimal);
+        System.out.println("The binary equivalent is: " + binary);
+        String reversedBinary = new StringBuilder(binary).reverse().toString();
+        System.out.println("The reversed binary equivalent is: " + reversedBinary);
+        
+        scanner.close();
+    }
+}
