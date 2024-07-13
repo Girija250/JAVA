@@ -1,0 +1,23 @@
+import java.util.HashMap;
+import java.util.Map;
+public class UniqueCharacters {
+    public static void main(String[] args) {
+        String input = "abcb";
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        for (char ch : input.toCharArray()) {
+            if (charCountMap.containsKey(ch)) {
+                charCountMap.put(ch, charCountMap.get(ch) + 1);
+            } else {
+                charCountMap.put(ch, 1);
+            }
+        }
+        System.out.println("Unique characters in the string '" + input + "':");
+        for (char ch : input.toCharArray()) {
+            if (charCountMap.get(ch) == 1) {
+                System.out.println(ch);
+                // Set count to 0 to avoid printing duplicates
+                charCountMap.put(ch, 0);
+            }
+        }
+    }
+}
