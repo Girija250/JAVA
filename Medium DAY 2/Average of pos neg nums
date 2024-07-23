@@ -1,0 +1,26 @@
+public class AverageCalculator {
+    public static void main(String[] args) {
+    
+        int[] numbers = {7, -2, 9, -8, -6, -4, 10, -1};
+
+        int sumPositive = 0;
+        int countPositive = 0;
+        int sumNegative = 0;
+        int countNegative = 0;
+        for (int number : numbers) {
+            if (number == -1) {
+                break;
+            } else if (number > 0) {
+                sumPositive += number;
+                countPositive++;
+            } else if (number < 0) {
+                sumNegative += number;
+                countNegative++;
+            }
+        }
+        double averagePositive = (countPositive > 0) ? (double) sumPositive / countPositive : 0.0;
+        double averageNegative = (countNegative > 0) ? (double) sumNegative / countNegative : 0.0;
+        System.out.println("The average of negative numbers is: " + averageNegative);
+        System.out.println("The average of positive numbers is: " + averagePositive);
+    }
+}
