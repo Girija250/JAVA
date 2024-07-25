@@ -1,0 +1,41 @@
+class Bank {
+    private String name;
+    private double rateOfInterest;
+    public Bank(String name, double rateOfInterest) {
+        this.name = name;
+        this.rateOfInterest = rateOfInterest;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getRateOfInterest() {
+        return rateOfInterest;
+    }
+}
+class SBI extends Bank {
+    public SBI() {
+        super("SBI", 8.4);
+    }
+}
+class ICICI extends Bank {
+    public ICICI() {
+        super("ICICI", 7.3);
+    }
+}
+class AXIS extends Bank {
+    public AXIS() {
+        super("AXIS", 9.7);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Bank sbi = new SBI();
+        Bank icici = new ICICI();
+        Bank axis = new AXIS();
+        System.out.println(sbi.getName() + " rate of interest: " + sbi.getRateOfInterest() + "%");
+        System.out.println(icici.getName() + " rate of interest: " + icici.getRateOfInterest() + "%");
+        System.out.println(axis.getName() + " rate of interest: " + axis.getRateOfInterest() + "%");
+    }
+}
