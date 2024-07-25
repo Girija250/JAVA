@@ -1,0 +1,24 @@
+class FibonacciRunnable implements Runnable {
+    private int n;
+    public FibonacciRunnable(int n) {
+        this.n = n;
+    }
+    @Override
+    public void run() {
+        int num1 = 0, num2 = 1;
+        System.out.print("Fibonacci series up to " + n + " terms: ");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(num1 + " ");
+            int sum = num1 + num2;
+            num1 = num2;
+            num2 = sum;
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        FibonacciRunnable runnable = new FibonacciRunnable(5);
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
+}
