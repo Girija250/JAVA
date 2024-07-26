@@ -1,0 +1,20 @@
+public class ExceptionHandler {
+    public static void main(String[] args) {
+        try {            int[] array = new int[5];
+            array[10] = 100; // ArrayIndexOutOfBoundsException
+            int num1 = 10;
+            int num2 = 0;
+            int result = num1 / num2;
+
+            String str = null;
+            System.out.println(str.length()); 
+        } catch (ArithmeticException | ArrayIndexOutOfBoundsException | NullPointerException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+            System.out.println("Exception type: " + e.getClass().getName());
+        } catch (Exception e) {
+            System.out.println("Unknown exception caught: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed");
+        }
+    }
+}
