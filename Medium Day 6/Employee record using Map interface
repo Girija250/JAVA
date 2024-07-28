@@ -1,0 +1,31 @@
+import java.util.HashMap;
+import java.util.Map;
+class Employee {
+    private int id;
+    private String name;
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+}
+public class EmployeeRecord {
+    public static void main(String[] args) {
+        Map<Integer, Employee> employeeRecord = new HashMap<>();
+        employeeRecord.put(1, new Employee(1, "John Doe"));
+        employeeRecord.put(2, new Employee(2, "Jane Smith"));
+        employeeRecord.put(3, new Employee(3, "Bob Johnson"));
+        System.out.println("Employee Record: " + employeeRecord);
+        System.out.println("Is Employee Record empty? " + employeeRecord.isEmpty());
+        employeeRecord.remove(2);
+        System.out.println("Employee Record after removal: " + employeeRecord);
+        employeeRecord.clear();
+        System.out.println("Employee Record after clearing: " + employeeRecord);
+        System.out.println("Is Employee Record empty after clearing? " + employeeRecord.isEmpty());
+    }
+}
