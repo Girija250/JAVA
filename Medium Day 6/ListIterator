@@ -1,0 +1,27 @@
+import java.util.LinkedList;
+import java.util.ListIterator;
+public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("C");
+        linkedList.add("A");
+        linkedList.add("E");
+        linkedList.add("B");
+        linkedList.add("D");
+        linkedList.add("F");
+        System.out.println("Original LinkedList: " + linkedList);
+
+        ListIterator<String> listIterator = linkedList.listIterator();
+        while (listIterator.hasNext()) {
+            String element = listIterator.next();
+            listIterator.set(element + "+");
+        }
+        System.out.println("LinkedList after appending '+' symbol: " + linkedList);
+
+        ListIterator<String> reverseIterator = linkedList.listIterator(linkedList.size());
+        System.out.println("Elements in reverse order: ");
+        while (reverseIterator.hasPrevious()) {
+            System.out.print(reverseIterator.previous() + " ");
+        }
+    }
+}
