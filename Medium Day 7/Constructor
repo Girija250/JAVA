@@ -1,0 +1,35 @@
+public class Student {
+    private String name;
+    private int registerNumber;
+    private int[] marks;
+    public Student(String name, int registerNumber, int[] marks) {
+        this.name = name;
+        this.registerNumber = registerNumber;
+        this.marks = marks;
+    }
+    public int calculateTotal() {
+        int total = 0;
+        for (int mark : marks) {
+            total += mark;
+        }
+        return total;
+    }
+    public double calculateAverage() {
+        return (double) calculateTotal() / marks.length;
+    }
+    public void displayStudentDetails() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Register Number: " + registerNumber);
+        System.out.print("Marks: ");
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+        System.out.println();
+        System.out.println("Total: " + calculateTotal());
+        System.out.println("Average: " + calculateAverage());
+    }
+    public static void main(String[] args) {
+        Student student = new Student("John Doe", 12345, new int[]{80, 70, 90, 85, 95});
+        student.displayStudentDetails();
+    }
+}
