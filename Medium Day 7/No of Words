@@ -1,0 +1,23 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+public class FileCounter {
+    public static void main(String[] args) {
+        String filePath = "path_to_your_file.txt"; 
+        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+            long lineCount = lines.count();
+            System.out.println("Line Count: " + lineCount);
+            long wordCount = Files.lines(Paths.get(filePath))
+                   .flatMap(line -> Stream.of(line.split("\\s+")))
+                   .count();
+            System.out.println("Word Count: " + wordCount);
+            long charCount = Files.lines(Paths.get(filePath))
+                   .map(String::length)
+                   .reduce(0, (a, b) -> a + b);
+            System.out.println("Character Count: " + charCount);
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+    }
+}
