@@ -1,0 +1,33 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class ProvidentFundCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double principalAmount = 0;
+        int years = 0;
+        double rateOfInterest = 0;
+        try {
+            System.out.print("Enter the principal amount: ");
+            principalAmount = scanner.nextDouble();
+            System.out.print("Enter the number of years: ");
+            years = scanner.nextInt();
+            System.out.print("Enter the rate of interest (in percentage): ");
+            rateOfInterest = scanner.nextDouble();
+            if (principalAmount <= 0 || years <= 0 || rateOfInterest <= 0) {
+                throw new ArithmeticException("Invalid input. Please enter positive values.");
+            }
+            double interest = calculateInterest(principalAmount, years, rateOfInterest);
+            System.out.println("The rate of interest is: " + interest);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter valid numbers.");
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            scanner.close();
+            System.out.println("Program terminated.");
+        }
+    }
+    private static double calculateInterest(double principalAmount, int years, double rateOfInterest) {
+        return (principalAmount * years * rateOfInterest) / 100;
+    }
+}
